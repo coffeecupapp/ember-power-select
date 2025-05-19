@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import { layout, tagName } from "@ember-decorators/component";
 import Component from '@ember/component';
 import { computed, action } from '@ember/object';

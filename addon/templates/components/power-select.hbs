@@ -76,7 +76,7 @@
       {{#let (component this.searchMessageComponent) as |SearchMessage|}}
         <SearchMessage @searchMessage={{this.searchMessage}} @select={{this.publicAPI}}/>
       {{/let}}
-    {{else if mustShowNoMessages}}
+    {{else if this.mustShowNoMessages}}
       {{#if (hasBlock "inverse")}}
         {{yield to="inverse"}}
       {{else if noMatchesMessage}}
