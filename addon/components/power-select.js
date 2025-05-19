@@ -14,7 +14,6 @@ import ObjectProxy from '@ember/object/proxy';
 import templateLayout from '../templates/components/power-select';
 import fallbackIfUndefined from '../utils/computed-fallback-if-undefined';
 import optionsMatcher from '../utils/computed-options-matcher';
-import { assign } from '@ember/polyfills';
 
 import {
   defaultMatcher,
@@ -178,8 +177,8 @@ export default @tagName('') @layout(templateLayout) class PowerSelect extends Co
     if (!dropdown) {
       return;
     }
-    let publicAPI = assign({}, this.publicAPI, dropdown);
-    publicAPI.actions = assign({}, dropdown.actions, this._publicAPIActions);
+    let publicAPI = Object.assign({}, this.publicAPI, dropdown);
+    publicAPI.actions = Object.assign({}, dropdown.actions, this._publicAPIActions);
     this.setProperties({
       publicAPI,
       optionsId: `ember-power-select-options-${publicAPI.uniqueId}`
@@ -661,7 +660,7 @@ export default @tagName('') @layout(templateLayout) class PowerSelect extends Co
   }
 
   updateState(changes) {
-    let newState = set(this, 'publicAPI', assign({}, this.publicAPI, changes));
+    let newState = set(this, 'publicAPI', Object.assign({}, this.publicAPI, changes));
     if (this.registerAPI) {
       this.registerAPI(newState);
     }
