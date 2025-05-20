@@ -7,7 +7,7 @@ import { inject as service } from '@ember/service';
 import { scheduleOnce } from '@ember/runloop';
 import { assert } from '@ember/debug';
 import { isBlank } from '@ember/utils';
-import { htmlSafe } from '@ember/string';
+import { htmlSafe } from '@ember/template';
 import templateLayout from '../../templates/components/power-select-multiple/trigger';
 
 const ua = window && window.navigator ? window.navigator.userAgent : '';
